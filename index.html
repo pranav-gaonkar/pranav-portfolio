@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pranav Gaonkar | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    section {
+      padding: 100px 10%;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero h1 {
+      font-size: 5rem;
+      font-weight: 800;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #aaa;
+    }
+
+    /* PROJECT STACK */
+    .projects {
+      position: relative;
+    }
+
+    .card {
+      position: sticky;
+      top: 100px;
+      margin-bottom: 100px;
+      padding: 40px;
+      border-radius: 20px;
+      background: #111;
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #bbb;
+    }
+
+    /* SKILLS */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .skill {
+      padding: 20px;
+      background: #111;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    /* CONTACT */
+    .contact a {
+      color: #00ffcc;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Pranav Gaonkar</h1>
+  <p>Building AI-powered systems and scalable backend applications</p>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects">
+
+  <div class="card">
+    <h2>LeakWatch Middleware</h2>
+    <p>Multimodal AI system for detecting and sanitizing sensitive data using NLP + Computer Vision.</p>
+  </div>
+
+  <div class="card">
+    <h2>Enterprise Change Management Platform</h2>
+    <p>Secure workflow system with OTP auth, SLA tracking, risk scoring, blackout validation, and CI dependency graphs.</p>
+  </div>
+
+  <div class="card">
+    <h2>BookingAgent</h2>
+    <p>AI scheduling assistant using LangChain with conflict resolution and voice input.</p>
+  </div>
+
+  <div class="card">
+    <h2>Netflix Clone</h2>
+    <p>Full-stack streaming UI with responsive frontend and MongoDB integration.</p>
+  </div>
+
+</section>
+
+<!-- SKILLS -->
+<section>
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="skill">C / C++</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">Python</div>
+    <div class="skill">React</div>
+    <div class="skill">Node.js</div>
+    <div class="skill">FastAPI</div>
+    <div class="skill">MongoDB</div>
+    <div class="skill">Docker</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:hipranavvg@gmail.com">hipranavvg@gmail.com</a></p>
+  <p>GitHub: <a href="https://github.com/pranav-gaonkar">github.com/pranav-gaonkar</a></p>
+</section>
+
+</body>
+</html>
