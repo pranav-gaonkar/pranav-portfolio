@@ -231,7 +231,7 @@
       border-radius: var(--radius-lg);
       border: 1px solid var(--line);
       background:
-        linear-gradient(145deg, rgba(18, 27, 45, 0.95), rgba(9, 14, 25, 0.95));
+        linear-gradient(145deg, rgba(14, 22, 38, 0.99), rgba(7, 11, 20, 0.99));
       box-shadow: var(--shadow-soft);
       overflow: hidden;
       transform-origin: center top;
@@ -621,7 +621,8 @@
       const rotateX = eased * 5;
 
       card.style.transform = `translate3d(0, ${depthY + parallaxY}px, 0) scale(${scale}) rotateX(${rotateX}deg)`;
-      card.style.zIndex = String(40 - index);
+      // Later cards should naturally move above earlier cards while stacking.
+      card.style.zIndex = String(index + 1);
     });
   }
 
