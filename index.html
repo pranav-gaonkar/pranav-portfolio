@@ -263,6 +263,18 @@
       max-width: 62ch;
     }
 
+    .project-highlights {
+      list-style: disc;
+      margin: 0 0 18px 18px;
+      color: #c3d3f0;
+      display: grid;
+      gap: 7px;
+    }
+
+    .project-highlights li {
+      line-height: 1.45;
+    }
+
     .tech-list {
       display: flex;
       flex-wrap: wrap;
@@ -512,6 +524,33 @@
       <article class="project-card reveal" data-index="2">
         <div class="project-inner">
           <div class="project-copy">
+            <h3>Hospital Management System (DBMS)</h3>
+            <p>
+              A full-scale database-driven hospital management platform built using MySQL, Python, and Streamlit,
+              featuring advanced SQL logic, real-time analytics, and automated workflows.
+            </p>
+            <ul class="project-highlights">
+              <li>Full CRUD operations across patients, doctors, appointments, billing, payments, and medical records.</li>
+              <li>Advanced SQL implementation with triggers, stored procedures, and functions.</li>
+              <li>Automated workflows for payment status updates, lab test billing, and room occupancy tracking.</li>
+              <li>Real-time analytics dashboard with patient balance computation and reporting.</li>
+              <li>Role-based authentication with secure password hashing and session management.</li>
+              <li>Trigger logging and monitoring system for auditing database actions.</li>
+            </ul>
+            <div class="tech-list">
+              <span>MySQL</span><span>Python</span><span>Streamlit</span><span>SQL Triggers</span><span>Procedures</span><span>Functions</span>
+            </div>
+            <a class="project-link" href="https://github.com/pranav-gaonkar" target="_blank" rel="noopener noreferrer">Open on GitHub -&gt;</a>
+          </div>
+          <div class="project-preview">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1100&q=80" alt="Hospital Management System preview">
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-index="3">
+        <div class="project-inner">
+          <div class="project-copy">
             <h3>BookingAgent</h3>
             <p>
               Conversational scheduling assistant that uses LangChain orchestration with voice input,
@@ -528,7 +567,7 @@
         </div>
       </article>
 
-      <article class="project-card reveal" data-index="3">
+      <article class="project-card reveal" data-index="4">
         <div class="project-inner">
           <div class="project-copy">
             <h3>Netflix Clone</h3>
