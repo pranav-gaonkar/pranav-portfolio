@@ -551,6 +551,33 @@
       <article class="project-card reveal" data-index="3">
         <div class="project-inner">
           <div class="project-copy">
+            <h3>Union File System (FUSE-based Layered Filesystem)</h3>
+            <p>
+              A low-level systems programming project implementing a minimal Union File System using FUSE 3,
+              demonstrating layered file system architecture similar to container storage systems.
+            </p>
+            <ul class="project-highlights">
+              <li>Implemented a layered filesystem with upper (writable) and lower (read-only) directories.</li>
+              <li>Designed and implemented Copy-on-Write semantics for modifying lower-layer files.</li>
+              <li>Implemented whiteout files (.wh.&lt;name&gt;) to handle deletions in layered namespace.</li>
+              <li>Supported core POSIX file operations including getattr, readdir, read, write, create, unlink, mkdir, and rmdir.</li>
+              <li>Built using FUSE 3 for user-space filesystem integration on Linux/WSL2.</li>
+              <li>Demonstrated real-world concepts used in container systems like Docker image layering.</li>
+            </ul>
+            <div class="tech-list">
+              <span>C</span><span>FUSE 3</span><span>Linux</span><span>File Systems</span><span>Systems Programming</span>
+            </div>
+            <a class="project-link" href="https://github.com/pranav-gaonkar" target="_blank" rel="noopener noreferrer">Open on GitHub -&gt;</a>
+          </div>
+          <div class="project-preview">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1100&q=80" alt="Union File System project preview">
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal" data-index="4">
+        <div class="project-inner">
+          <div class="project-copy">
             <h3>BookingAgent</h3>
             <p>
               Conversational scheduling assistant that uses LangChain orchestration with voice input,
@@ -567,7 +594,7 @@
         </div>
       </article>
 
-      <article class="project-card reveal" data-index="4">
+      <article class="project-card reveal" data-index="5">
         <div class="project-inner">
           <div class="project-copy">
             <h3>Netflix Clone</h3>
