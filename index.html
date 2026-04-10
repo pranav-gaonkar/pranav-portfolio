@@ -2,151 +2,686 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pranav Gaonkar | Portfolio</title>
+  <title>Pranav Gaonkar | AI Developer Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pranav Gaonkar - Software developer focused on AI-powered systems and scalable backend applications.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg: #080b12;
+      --bg-soft: #0d1220;
+      --surface: rgba(12, 18, 31, 0.74);
+      --surface-strong: rgba(20, 29, 47, 0.92);
+      --text: #eff3ff;
+      --muted: #98a5c7;
+      --line: rgba(136, 168, 255, 0.28);
+      --primary: #7fb8ff;
+      --accent: #7fffd4;
+      --gradient: linear-gradient(100deg, #7fb8ff 5%, #9f8cff 48%, #8cf6cf 90%);
+      --shadow-soft: 0 22px 70px rgba(6, 11, 22, 0.52);
+      --radius-lg: 30px;
+      --radius-md: 18px;
+      --max-width: 1180px;
+      --transition: 260ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background: #0a0a0a;
-      color: white;
-      overflow-x: hidden;
-    }
-
-    section {
-      padding: 100px 10%;
-    }
-
-    /* HERO */
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .hero h1 {
-      font-size: 5rem;
-      font-weight: 800;
-    }
-
-    .hero p {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      color: #aaa;
-    }
-
-    /* PROJECT STACK */
-    .projects {
+      font-family: 'Manrope', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 10%, rgba(129, 177, 255, 0.2), transparent 36%),
+        radial-gradient(circle at 84% 14%, rgba(136, 125, 255, 0.16), transparent 36%),
+        radial-gradient(circle at 52% 90%, rgba(130, 255, 219, 0.12), transparent 30%),
+        var(--bg);
+      min-height: 100vh;
+      overflow-x: clip;
+      line-height: 1.6;
       position: relative;
     }
 
-    .card {
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    body::before {
+      background:
+        linear-gradient(to right, rgba(127, 184, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(127, 184, 255, 0.06) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at 50% 30%, black 35%, transparent 88%);
+    }
+
+    body::after {
+      opacity: 0.08;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.8'/%3E%3C/svg%3E");
+    }
+
+    .spotlight {
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(125, 174, 255, 0.2) 0%, rgba(125, 174, 255, 0.04) 45%, transparent 72%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 350ms ease;
+    }
+
+    .site-shell {
+      width: min(var(--max-width), 92vw);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: 0.01em;
+      font-size: clamp(1.7rem, 2.5vw, 2.55rem);
+      margin-bottom: 20px;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      max-width: 740px;
+      margin-bottom: 44px;
+    }
+
+    .hero {
+      min-height: 96vh;
+      display: grid;
+      align-items: center;
+      padding-top: 74px;
+    }
+
+    .hero-panel {
+      max-width: 860px;
+      position: relative;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 100px;
+      border: 1px solid rgba(130, 170, 255, 0.36);
+      background: rgba(80, 107, 173, 0.14);
+      color: #d6e4ff;
+      font-size: 0.84rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      box-shadow: inset 0 0 0 1px rgba(180, 205, 255, 0.08);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.6rem, 8vw, 5.6rem);
+      font-weight: 700;
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      text-wrap: balance;
+    }
+
+    .hero h1 .name {
+      display: block;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 0 24px rgba(143, 181, 255, 0.28));
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: clamp(1rem, 2.2vw, 1.3rem);
+      color: #c5d0ea;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 150px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background-color var(--transition);
+      will-change: transform;
+    }
+
+    .button.primary {
+      background: var(--gradient);
+      color: #081019;
+      box-shadow: 0 14px 34px rgba(123, 180, 255, 0.26);
+    }
+
+    .button.secondary {
+      color: #d4e4ff;
+      background: rgba(42, 63, 102, 0.34);
+      border-color: rgba(152, 188, 255, 0.3);
+    }
+
+    .button:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 18px 36px rgba(120, 168, 255, 0.24);
+      border-color: rgba(178, 203, 255, 0.5);
+    }
+
+    .projects {
+      padding-top: 70px;
+    }
+
+    .project-stack {
+      position: relative;
+      perspective: 1200px;
+      padding-bottom: 160px;
+    }
+
+    .project-card {
       position: sticky;
-      top: 100px;
-      margin-bottom: 100px;
-      padding: 40px;
-      border-radius: 20px;
-      background: #111;
-      transition: 0.3s ease;
+      top: 95px;
+      margin-bottom: 16vh;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(145deg, rgba(18, 27, 45, 0.95), rgba(9, 14, 25, 0.95));
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transform-origin: center top;
+      transition: box-shadow var(--transition), border-color var(--transition);
+      will-change: transform;
     }
 
-    .card:hover {
-      transform: scale(1.02);
+    .project-card:hover {
+      border-color: rgba(180, 208, 255, 0.62);
+      box-shadow: 0 26px 74px rgba(8, 17, 34, 0.68), 0 0 0 1px rgba(168, 198, 255, 0.34);
     }
 
-    .card h2 {
-      font-size: 2rem;
+    .project-inner {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+      padding: clamp(20px, 4vw, 34px);
+      align-items: stretch;
+    }
+
+    .project-copy h3 {
+      font-size: clamp(1.3rem, 2.2vw, 1.95rem);
       margin-bottom: 10px;
     }
 
-    .card p {
-      color: #bbb;
+    .project-copy p {
+      color: #b8c7e6;
+      margin-bottom: 16px;
+      max-width: 62ch;
     }
 
-    /* SKILLS */
-    .skills {
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .tech-list span {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 6px 11px;
+      border-radius: 999px;
+      color: #d6e5ff;
+      border: 1px solid rgba(147, 183, 255, 0.38);
+      background: rgba(90, 121, 193, 0.2);
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #9ed0ff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color var(--transition), transform var(--transition);
+    }
+
+    .project-link:hover {
+      color: #d8f2ff;
+      transform: translateX(3px);
+    }
+
+    .project-preview {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(169, 197, 255, 0.36);
+      background: rgba(10, 15, 26, 0.6);
+      min-height: 220px;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .project-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.04);
+      transition: transform 380ms ease;
+      filter: saturate(1.08) contrast(1.03);
+    }
+
+    .project-card:hover .project-preview img {
+      transform: scale(1.09);
+    }
+
+    .project-preview::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 20%, rgba(5, 9, 18, 0.35));
+      z-index: 1;
+    }
+
+    .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 14px;
     }
 
     .skill {
-      padding: 20px;
-      background: #111;
-      border-radius: 10px;
+      border: 1px solid rgba(142, 178, 250, 0.3);
+      border-radius: 14px;
+      padding: 16px;
       text-align: center;
+      font-weight: 600;
+      color: #d7e6ff;
+      background: linear-gradient(150deg, rgba(30, 42, 70, 0.62), rgba(14, 21, 35, 0.8));
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      box-shadow: 0 10px 24px rgba(5, 11, 21, 0.36);
     }
 
-    /* CONTACT */
-    .contact a {
-      color: #00ffcc;
+    .skill:hover {
+      transform: translateY(-3px) scale(1.02);
+      border-color: rgba(180, 207, 255, 0.58);
+      box-shadow: 0 16px 34px rgba(8, 15, 30, 0.56), 0 0 0 1px rgba(153, 189, 255, 0.36);
+    }
+
+    .contact {
+      padding-bottom: 120px;
+    }
+
+    .contact-panel {
+      border: 1px solid rgba(153, 188, 255, 0.36);
+      background: linear-gradient(140deg, rgba(20, 32, 54, 0.72), rgba(10, 16, 29, 0.9));
+      border-radius: 24px;
+      padding: clamp(24px, 5vw, 44px);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px 26px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      color: #d6ebff;
       text-decoration: none;
+      border: 1px solid rgba(142, 177, 248, 0.35);
+      border-radius: 12px;
+      padding: 10px 14px;
+      background: rgba(38, 57, 94, 0.32);
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .contact-links a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(188, 211, 255, 0.68);
+      box-shadow: 0 14px 28px rgba(8, 16, 34, 0.5);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(42px);
+      transition: opacity 650ms ease, transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .project-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        top: 72px;
+      }
+
+      section {
+        padding: 82px 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        min-height: 84vh;
+        padding-top: 54px;
+      }
+
+      .hero-actions {
+        width: 100%;
+      }
+
+      .button {
+        flex: 1;
+      }
+
+      .project-card {
+        margin-bottom: 13vh;
+      }
+
+      .spotlight {
+        width: 310px;
+        height: 310px;
+      }
     }
 
   </style>
 </head>
 
 <body>
+<div class="spotlight" aria-hidden="true"></div>
+<main class="site-shell">
+  <section class="hero reveal" id="home">
+    <div class="hero-panel">
+      <span class="eyebrow">Software Developer</span>
+      <h1>
+        Building resilient systems with
+        <span class="name">Pranav Gaonkar</span>
+      </h1>
+      <p>
+        I design AI-powered platforms and high-performance backend applications with a focus on reliability,
+        privacy, and delightful user experiences at scale.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="#projects">View Projects</a>
+        <a class="button secondary" href="#contact">Contact</a>
+      </div>
+    </div>
+  </section>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Pranav Gaonkar</h1>
-  <p>Building AI-powered systems and scalable backend applications</p>
-</section>
+  <section class="projects" id="projects">
+    <h2 class="section-title reveal">Selected Projects</h2>
+    <p class="section-sub reveal">
+      A stack-roll showcase with depth, parallax motion, and sticky transitions to highlight product thinking,
+      AI integration, and backend architecture.
+    </p>
 
-<!-- PROJECTS -->
-<section class="projects">
+    <div class="project-stack" id="projectStack">
+      <article class="project-card reveal" data-index="0">
+        <div class="project-inner">
+          <div class="project-copy">
+            <h3>LeakWatch Middleware</h3>
+            <p>
+              Privacy-first multimodal middleware that detects and sanitizes sensitive information in text and visuals using
+              Computer Vision and NLP pipelines for real-time enterprise workflows.
+            </p>
+            <div class="tech-list">
+              <span>Python</span><span>OpenCV</span><span>NLP</span><span>FastAPI</span><span>AI Security</span>
+            </div>
+            <a class="project-link" href="https://github.com/pranav-gaonkar" target="_blank" rel="noopener noreferrer">Open on GitHub -></a>
+          </div>
+          <div class="project-preview">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1100&q=80" alt="LeakWatch Middleware preview">
+          </div>
+        </div>
+      </article>
 
-  <div class="card">
-    <h2>LeakWatch Middleware</h2>
-    <p>Multimodal AI system for detecting and sanitizing sensitive data using NLP + Computer Vision.</p>
-  </div>
+      <article class="project-card reveal" data-index="1">
+        <div class="project-inner">
+          <div class="project-copy">
+            <h3>Enterprise Change Management Platform</h3>
+            <p>
+              Robust Streamlit platform with OTP authentication, SLA-driven workflows, risk scoring, blackout validation,
+              and CI dependency graph intelligence for safer operational rollouts.
+            </p>
+            <div class="tech-list">
+              <span>Streamlit</span><span>OTP Auth</span><span>SLA Tracking</span><span>Risk Engine</span><span>CI Graphs</span>
+            </div>
+            <a class="project-link" href="https://github.com/pranav-gaonkar" target="_blank" rel="noopener noreferrer">Open on GitHub -></a>
+          </div>
+          <div class="project-preview">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1100&q=80" alt="Enterprise Change Management Platform preview">
+          </div>
+        </div>
+      </article>
 
-  <div class="card">
-    <h2>Enterprise Change Management Platform</h2>
-    <p>Secure workflow system with OTP auth, SLA tracking, risk scoring, blackout validation, and CI dependency graphs.</p>
-  </div>
+      <article class="project-card reveal" data-index="2">
+        <div class="project-inner">
+          <div class="project-copy">
+            <h3>BookingAgent</h3>
+            <p>
+              Conversational scheduling assistant that uses LangChain orchestration with voice input,
+              contextual memory, and conflict-aware planning for intelligent booking automation.
+            </p>
+            <div class="tech-list">
+              <span>LangChain</span><span>Voice Input</span><span>LLM Agents</span><span>Scheduling</span><span>Automation</span>
+            </div>
+            <a class="project-link" href="https://github.com/pranav-gaonkar" target="_blank" rel="noopener noreferrer">Open on GitHub -></a>
+          </div>
+          <div class="project-preview">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=1100&q=80" alt="BookingAgent preview">
+          </div>
+        </div>
+      </article>
 
-  <div class="card">
-    <h2>BookingAgent</h2>
-    <p>AI scheduling assistant using LangChain with conflict resolution and voice input.</p>
-  </div>
+      <article class="project-card reveal" data-index="3">
+        <div class="project-inner">
+          <div class="project-copy">
+            <h3>Netflix Clone</h3>
+            <p>
+              Full-stack streaming web app featuring responsive UI composition, content feeds,
+              authentication flows, and scalable backend integration for production-style behavior.
+            </p>
+            <div class="tech-list">
+              <span>React</span><span>Node.js</span><span>MongoDB</span><span>Auth</span><span>REST APIs</span>
+            </div>
+            <a class="project-link" href="https://github.com/pranav-gaonkar" target="_blank" rel="noopener noreferrer">Open on GitHub -></a>
+          </div>
+          <div class="project-preview">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1100&q=80" alt="Netflix Clone preview">
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
 
-  <div class="card">
-    <h2>Netflix Clone</h2>
-    <p>Full-stack streaming UI with responsive frontend and MongoDB integration.</p>
-  </div>
+  <section id="skills">
+    <h2 class="section-title reveal">Core Skills</h2>
+    <p class="section-sub reveal">
+      Product-focused engineering across AI workflows, scalable services, and modern web interfaces.
+    </p>
+    <div class="skills-grid reveal">
+      <div class="skill">Python</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">FastAPI</div>
+      <div class="skill">Node.js</div>
+      <div class="skill">LangChain</div>
+      <div class="skill">Computer Vision</div>
+      <div class="skill">NLP</div>
+      <div class="skill">Streamlit</div>
+      <div class="skill">MongoDB</div>
+      <div class="skill">Docker</div>
+      <div class="skill">CI/CD</div>
+      <div class="skill">System Design</div>
+    </div>
+  </section>
 
-</section>
+  <section class="contact" id="contact">
+    <h2 class="section-title reveal">Contact</h2>
+    <div class="contact-panel reveal">
+      <p>Open to building impactful AI and backend products.</p>
+      <div class="contact-links">
+        <a href="mailto:hipranavvg@gmail.com">hipranavvg@gmail.com</a>
+        <a href="https://github.com/pranav-gaonkar" target="_blank" rel="noopener noreferrer">github.com/pranav-gaonkar</a>
+      </div>
+    </div>
+  </section>
+</main>
 
-<!-- SKILLS -->
-<section>
-  <h2>Skills</h2>
-  <div class="skills">
-    <div class="skill">C / C++</div>
-    <div class="skill">JavaScript</div>
-    <div class="skill">Python</div>
-    <div class="skill">React</div>
-    <div class="skill">Node.js</div>
-    <div class="skill">FastAPI</div>
-    <div class="skill">MongoDB</div>
-    <div class="skill">Docker</div>
-  </div>
-</section>
+<script>
+  const cards = Array.from(document.querySelectorAll('.project-card'));
+  const stack = document.getElementById('projectStack');
+  const spotlight = document.querySelector('.spotlight');
 
-<!-- CONTACT -->
-<section class="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:hipranavvg@gmail.com">hipranavvg@gmail.com</a></p>
-  <p>GitHub: <a href="https://github.com/pranav-gaonkar">github.com/pranav-gaonkar</a></p>
-</section>
+  let latestY = window.scrollY;
+  let ticking = false;
+
+  function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  function easeOutCubic(t) {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
+  function updateStackMotion() {
+    if (!stack || cards.length === 0) {
+      return;
+    }
+
+    const viewportH = window.innerHeight;
+    const scrollTop = latestY;
+
+    cards.forEach((card, index) => {
+      const cardTop = card.offsetTop;
+      const triggerStart = cardTop - viewportH * 0.72;
+      const triggerEnd = cardTop + viewportH * 0.45;
+      const localProgress = clamp((scrollTop - triggerStart) / (triggerEnd - triggerStart), 0, 1);
+      const eased = easeOutCubic(localProgress);
+
+      const baseScale = 1 - index * 0.028;
+      const dynamicScale = 1 - eased * 0.055;
+      const scale = baseScale * dynamicScale;
+      const depthY = eased * (index * -20);
+      const parallaxY = eased * -10;
+      const rotateX = eased * 5;
+
+      card.style.transform = `translate3d(0, ${depthY + parallaxY}px, 0) scale(${scale}) rotateX(${rotateX}deg)`;
+      card.style.zIndex = String(40 - index);
+    });
+  }
+
+  function requestTick() {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateStackMotion();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    latestY = window.scrollY;
+    requestTick();
+  }, { passive: true });
+
+  window.addEventListener('resize', requestTick);
+  updateStackMotion();
+
+  // Reveal sections and cards when entering viewport.
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry, idx) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = `${idx * 40}ms`;
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -10% 0px'
+  });
+
+  revealElements.forEach((el) => revealObserver.observe(el));
+
+  // Cursor spotlight effect with requestAnimationFrame smoothing.
+  let targetX = window.innerWidth / 2;
+  let targetY = window.innerHeight / 2;
+  let x = targetX;
+  let y = targetY;
+
+  function animateSpotlight() {
+    x += (targetX - x) * 0.12;
+    y += (targetY - y) * 0.12;
+    spotlight.style.left = `${x}px`;
+    spotlight.style.top = `${y}px`;
+    window.requestAnimationFrame(animateSpotlight);
+  }
+
+  window.addEventListener('pointermove', (event) => {
+    targetX = event.clientX;
+    targetY = event.clientY;
+    spotlight.style.opacity = '1';
+  });
+
+  animateSpotlight();
+</script>
 
 </body>
 </html>
